@@ -7,8 +7,6 @@
     background-color: #FFF;
     will-change: transform;
     contain: layout style;
-    overflow-y: auto;
-    overflow-x: hidden;
 }
 
     .touch-menu-la.transition {
@@ -23,13 +21,6 @@
         top: 0;
         /* width: 20px; */
         height: 100%;
-    }
-
-    .touch-menu-la.opened {
-    }
-
-    .touch-menu-la.closed {
-        transform: none !important;
     }
 
 .tmla-mask {
