@@ -34,7 +34,7 @@ i {
 .touch-menu-la .inner-header {
 	width: 100%;
 	height: 100px;
-	background-image: url(../assets/inner-header-bg.jpg);
+	background-image: url(../../src/assets/inner-header-bg.jpg);
 	font-size: 26px;
 	font-weight: 300;
 	text-align: center;
