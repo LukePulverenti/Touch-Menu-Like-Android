@@ -1,9 +1,10 @@
-<!doctype html>
+﻿<!doctype html>
 <!--[if lt IE 7]> <html class="no-js ie6" lang="en"> <![endif]-->
 <!--[if IE 7]>    <html class="no-js ie7" lang="en"> <![endif]-->
 <!--[if IE 8]>    <html class="no-js ie8" lang="en"> <![endif]-->
 <!--[if gt IE 8]><!-->
-<html class="no-js" lang="en"><!--<![endif]-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -23,50 +24,51 @@
     <meta property="og:type" content="website">
 
     <title>Touch Menu Like Android by ErickTatsui</title>
-    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
     <link rel="stylesheet" href="css/touch-menu-la.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--[if lt IE 9]>
         <script type="text/javascript" src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
-    </head>
-    <body>
-        <div id="background-image">
-            <img src="assets/background.jpg" width="1920" height="1080" alt="Menu Touch Like Android" />
+</head>
+<body>
+    <div id="background-image">
+        <img src="assets/background.jpg" width="1920" height="1080" alt="Menu Touch Like Android" />
+    </div>
+
+    <header>
+        <i class="material-icons" id="menu-open">menu</i>
+        <span class="title">Touch Menu L.A.</span>
+    </header>
+
+    <section class="content">
+        <h1>Touch Menu</h1>
+        <h2>Like Android</h2>
+        <p>A touch menu like Navigation Drawer of Android.</p>
+        <p>Use with mobile applications like cordova, ionic framework, etc.</p>
+        <br>
+        <p>
+            <i class="material-icons">touch_app</i>&nbsp;&nbsp; Drag the corner to see the menu in action.
+        </p>
+
+        <div class="buttons">
+            <a href="https://github.com/ericktatsui/Touch-Menu-Like-Android">
+                <i class="fa fa-github"></i>&nbsp;&nbsp; View on GitHub
+            </a>
+            <a href="https://github.com/ericktatsui/Touch-Menu-Like-Android/zipball/master">
+                <i class="fa fa-download"></i>&nbsp;&nbsp; Download .zip
+            </a>
+            <a href="https://github.com/ericktatsui/Touch-Menu-Like-Android/tarball/master">
+                <i class="fa fa-download"></i>&nbsp;&nbsp; Download.tar.gz
+            </a>
         </div>
+    </section>
 
-        <header>
-            <i class="material-icons" id="menu-open">menu</i>
-            <span class="title">Touch Menu L.A.</span>
-        </header>
-
-        <section class="content">
-            <h1>Touch Menu</h1>
-            <h2>Like Android</h2>
-            <p>A touch menu like Navigation Drawer of Android.</p>
-            <p>Use with mobile applications like cordova, ionic framework, etc.</p>
-            <br>
-            <p>
-                <i class="material-icons">touch_app</i>&nbsp;&nbsp; Drag the corner to see the menu in action.
-            </p>
-
-            <div class="buttons">
-                <a href="https://github.com/ericktatsui/Touch-Menu-Like-Android">
-                    <i class="fa fa-github"></i>&nbsp;&nbsp; View on GitHub
-                </a>
-                <a href="https://github.com/ericktatsui/Touch-Menu-Like-Android/zipball/master">
-                    <i class="fa fa-download"></i>&nbsp;&nbsp; Download .zip
-                </a>
-                <a href="https://github.com/ericktatsui/Touch-Menu-Like-Android/tarball/master">
-                    <i class="fa fa-download"></i>&nbsp;&nbsp; Download.tar.gz
-                </a>
-            </div>
-        </section>
-
-        <div id="menu" class="touch-menu-la">
+    <div id="menu" class="touch-menu-la">
+        <div style="height:10000px;">
             <div class="inner-header">
                 Touch Menu
                 <span>Like Android</span>
@@ -79,17 +81,17 @@
                 </li>
                 <li>
                     <a href="https://github.com/ericktatsui/Touch-Menu-Like-Android/tree/master#readme">
-                    <i class="fa fa-file-text"></i> Documentation
-                </a>
+                        <i class="fa fa-file-text"></i> Documentation
+                    </a>
                 <li>
                     <a href="https://github.com/ericktatsui/Touch-Menu-Like-Android/zipball/master">
-                    <i class="fa fa-download"></i> Download .zip
-                </a>
+                        <i class="fa fa-download"></i> Download .zip
+                    </a>
                 </li>
                 <li>
                     <a href="https://github.com/ericktatsui/Touch-Menu-Like-Android/tarball/master">
-                    <i class="fa fa-download"></i> Download.tar.gz
-                </a>
+                        <i class="fa fa-download"></i> Download.tar.gz
+                    </a>
                 </li>
                 <li>
                     <a href="mailto:ericktatsui@gmail.com">
@@ -104,12 +106,13 @@
                 <iframe src="https://ghbtns.com/github-btn.html?user=ericktatsui&repo=Touch-Menu-Like-Android&type=star&count=true" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
             </div>
         </div>
+    </div>
 
-        <script type="text/javascript" src="js/jquery.js"></script>
-        <script type="text/javascript" src="js/jquery.fullscreenBackground.js"></script>
-        <script type="text/javascript" src="js/hammer.min.js"></script>
-        <script type="text/javascript" src="js/touch-menu-la.js"></script>
-        <script type="text/javascript">
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/jquery.fullscreenBackground.js"></script>
+    <script type="text/javascript" src="js/hammer.min.js"></script>
+    <script type="text/javascript" src="js/touch-menu-la.js"></script>
+    <script type="text/javascript">
         $(document).ready(function () {
             $("#background-image").fullscreenBackground();
         });
@@ -118,9 +121,9 @@
             target: document.getElementById('menu')
         });
 
-        document.getElementById('menu-open').addEventListener('click', function(){
+        document.getElementById('menu-open').addEventListener('click', function () {
             TouchMenu.toggle();
         });
-        </script>
-    </body>
-    </html>
+    </script>
+</body>
+</html>

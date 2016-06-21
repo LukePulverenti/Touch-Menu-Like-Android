@@ -7,6 +7,8 @@
     background-color: #FFF;
     will-change: transform;
     contain: layout style;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
     .touch-menu-la.transition {
