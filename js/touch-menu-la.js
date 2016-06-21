@@ -62,7 +62,7 @@ var TouchMenuLA = function (options) {
 
     TouchMenuLA.prototype.touchStartMenu = function () {
         menuHammer.on('panstart panmove', function (ev) {
-            if (Math.abs(ev.deltaY) <= 70) {
+            if (Math.abs(ev.deltaY) <= 60) {
                 options.target.classList.remove('transition');
                 newPos = currentPos + ev.deltaX;
                 self.changeMenuPos();
