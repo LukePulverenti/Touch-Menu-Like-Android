@@ -5,7 +5,6 @@ var TouchMenuLA = function (options) {
 		mask,
 		handle,
 		menuHammer,
-		maskHammer,
 		newPos = 0,
 		currentPos = 0,
 		startPoint = 0,
@@ -13,6 +12,9 @@ var TouchMenuLA = function (options) {
 		velocity = 0.0;
 
     options.target.classList.add('transition');
+    var dragging;
+
+    var scrollContainer = options.target.querySelector('.scrollContainer');
 
     var TouchMenuLA = function () {
         self = this;
@@ -22,6 +24,7 @@ var TouchMenuLA = function (options) {
             zIndex: 99999,
             disableSlide: false,
             handleSize: 30,
+            disableMask: false,
             disableMask: false,
             maxMaskOpacity: 0.5
         };
@@ -55,8 +58,6 @@ var TouchMenuLA = function (options) {
             mask = document.createElement('div');
             mask.className = 'tmla-mask';
             document.body.appendChild(mask);
-
-            maskHammer = new Hammer(mask, null);
         }
     };
 
@@ -67,7 +68,13 @@ var TouchMenuLA = function (options) {
         });
         menuHammer.on('panmove', function (ev) {
             if (Math.abs(ev.deltaY) <= 70) {
-                options.target.classList.add('dragging');
+
+                if (!dragging) {
+
+                    dragging = true;
+                    scrollContainer.style.transform = 'translateX(-' + scrollContainer.scrollTop + 'px);';
+                    options.target.classList.add('dragging');
+                }
                 newPos = currentPos + ev.deltaX;
                 self.changeMenuPos();
             }
@@ -114,33 +121,10 @@ var TouchMenuLA = function (options) {
         menuHammer.on('panend pancancel', function (ev) {
             options.target.classList.add('transition');
             options.target.classList.remove('dragging');
+            scrollContainer.style.transform = 'none';
+            dragging = false;
             currentPos = ev.deltaX;
             self.checkMenuState(ev.deltaX, ev.deltaY);
-        });
-    };
-
-    TouchMenuLA.prototype.eventStartMask = function () {
-        maskHammer.on('panstart panmove', function (ev) {
-            if (ev.center.x <= options.width && self.isVisible) {
-                countStart++;
-
-                if (countStart == 1) {
-                    startPoint = ev.deltaX;
-                }
-
-                if (ev.deltaX < 0) {
-                    newPos = (ev.deltaX - startPoint) + options.width;
-                    self.changeMenuPos();
-                    velocity = Math.abs(ev.velocity);
-                }
-            }
-        });
-    };
-
-    TouchMenuLA.prototype.eventEndMask = function () {
-        maskHammer.on('panend pancancel', function (ev) {
-            self.checkMenuState(ev.deltaX, ev.deltaY);
-            countStart = 0;
         });
     };
 
@@ -226,8 +210,6 @@ var TouchMenuLA = function (options) {
             if (!options.disableSlide) {
                 self.touchStartMenu();
                 self.touchEndMenu();
-                self.eventStartMask();
-                self.eventEndMask();
             }
 
             if (!options.disableMask) {
