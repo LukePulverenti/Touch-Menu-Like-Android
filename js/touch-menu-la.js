@@ -70,8 +70,14 @@ var TouchMenuLA = function (options) {
         menuHammer.on('panmove', function (ev) {
 
             velocity = Math.abs(ev.velocity);
+            // Depending on the deltas, choose X or Y
 
-            if (!draggingX && !draggingY && Math.abs(ev.deltaY) <= 70) {
+            // If it's already open, then treat any right-swipe as vertical pan
+            if (!draggingX && ev.deltaX > 0) {
+                draggingY = true;
+            }
+
+            if (!draggingX && !draggingY && Math.abs(ev.deltaX) >= 10) {
                 draggingX = true;
                 scrollContainer.style.transform = 'translateX(-' + scrollContainer.scrollTop + 'px);';
                 options.target.classList.add('draggingX');
