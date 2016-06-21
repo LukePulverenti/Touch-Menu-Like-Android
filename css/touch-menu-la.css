@@ -7,8 +7,11 @@
     background-color: #FFF;
     will-change: transform;
     contain: layout style;
-    transition: all 0.3s ease-out !important;
 }
+
+    .touch-menu-la.transition {
+        transition: transform 0.3s ease-out !important;
+    }
 
     .touch-menu-la .tmla-handle {
         position: absolute;

@@ -12,6 +12,8 @@ var TouchMenuLA = function (options) {
 		countStart = 0,
 		velocity = 0.0;
 
+    options.target.classList.add('transition');
+
     var TouchMenuLA = function () {
         self = this;
 
@@ -60,6 +62,7 @@ var TouchMenuLA = function (options) {
 
     TouchMenuLA.prototype.touchStartMenu = function () {
         menuHammer.on('panstart panmove', function (ev) {
+            options.target.classList.remove('transition');
             newPos = currentPos + ev.deltaX;
             self.changeMenuPos();
             velocity = Math.abs(ev.velocity);
@@ -75,7 +78,6 @@ var TouchMenuLA = function (options) {
 
     TouchMenuLA.prototype.changeMenuPos = function () {
         if (newPos <= options.width) {
-            options.target.className = menuClassName + ' tmla-menu';
             this.animateToPosition(newPos);
 
             if (!options.disableMask) {
@@ -98,6 +100,7 @@ var TouchMenuLA = function (options) {
 
     TouchMenuLA.prototype.touchEndMenu = function () {
         menuHammer.on('panend pancancel', function (ev) {
+            options.target.classList.add('transition');
             currentPos = ev.deltaX;
             self.checkMenuState(ev.deltaX);
         });
@@ -151,7 +154,6 @@ var TouchMenuLA = function (options) {
     };
 
     TouchMenuLA.prototype.open = function () {
-        options.target.className = menuClassName + " tmla-menu opened";
         this.animateToPosition(options.width);
 
         currentPos = options.width;
@@ -162,7 +164,7 @@ var TouchMenuLA = function (options) {
     };
 
     TouchMenuLA.prototype.close = function () {
-        options.target.className = menuClassName + " tmla-menu closed";
+        this.animateToPosition(0);
         currentPos = 0;
         self.isVisible = false;
 
