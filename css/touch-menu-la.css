@@ -5,6 +5,8 @@
     top: 0;
     left: -280px;
     background-color: #FFF;
+    will-change: transform;
+    contain: layout style;
 }
 
     .touch-menu-la .tmla-handle {
