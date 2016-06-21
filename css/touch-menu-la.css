@@ -32,6 +32,10 @@
     overflow: auto;
 }
 
+.dragging .scrollContainer {
+    overflow: hidden;
+}
+
 .tmla-mask {
     width: 100%;
     height: 100%;
