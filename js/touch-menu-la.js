@@ -63,8 +63,10 @@ var TouchMenuLA = function (options) {
     TouchMenuLA.prototype.touchStartMenu = function () {
         menuHammer.on('panstart panmove', function (ev) {
             options.target.classList.remove('transition');
-            newPos = currentPos + ev.deltaX;
-            self.changeMenuPos();
+            if (Math.abs(ev.deltaY) <= 70) {
+                newPos = currentPos + ev.deltaX;
+                self.changeMenuPos();
+            }
             velocity = Math.abs(ev.velocity);
         });
     };
@@ -145,7 +147,7 @@ var TouchMenuLA = function (options) {
 
     TouchMenuLA.prototype.checkMenuState = function (deltaX) {
         if (velocity >= 1.0) {
-            if (deltaX >= -70) {
+            if (deltaX >= -80) {
                 self.open();
             } else {
                 self.close();
