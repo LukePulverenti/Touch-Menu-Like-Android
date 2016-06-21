@@ -21,7 +21,7 @@ var TouchMenuLA = function (options) {
             width: 280,
             zIndex: 99999,
             disableSlide: false,
-            handleSize: 20,
+            handleSize: 30,
             disableMask: false,
             maxMaskOpacity: 0.5
         };
