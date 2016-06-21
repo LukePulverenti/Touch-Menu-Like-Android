@@ -62,6 +62,7 @@ var TouchMenuLA = function (options) {
 
     TouchMenuLA.prototype.touchStartMenu = function () {
         menuHammer.on('panstart', function (ev) {
+            options.target.classList.remove('transition');
             velocity = Math.abs(ev.velocity);
         });
         menuHammer.on('panmove', function (ev) {
