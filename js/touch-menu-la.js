@@ -12,7 +12,8 @@ var TouchMenuLA = function (options) {
 		velocity = 0.0;
 
     options.target.classList.add('transition');
-    var dragging;
+    var draggingX;
+    var draggingY;
 
     var scrollContainer = options.target.querySelector('.scrollContainer');
 
@@ -67,18 +68,22 @@ var TouchMenuLA = function (options) {
             velocity = Math.abs(ev.velocity);
         });
         menuHammer.on('panmove', function (ev) {
-            if (Math.abs(ev.deltaY) <= 70) {
 
-                if (!dragging) {
+            velocity = Math.abs(ev.velocity);
 
-                    dragging = true;
-                    scrollContainer.style.transform = 'translateX(-' + scrollContainer.scrollTop + 'px);';
-                    options.target.classList.add('dragging');
-                }
+            if (!draggingX && !draggingY && Math.abs(ev.deltaY) <= 70) {
+                draggingX = true;
+                scrollContainer.style.transform = 'translateX(-' + scrollContainer.scrollTop + 'px);';
+                options.target.classList.add('draggingX');
+
+            } else if (!draggingY) {
+                draggingY = true;
+            }
+
+            if (draggingX) {
                 newPos = currentPos + ev.deltaX;
                 self.changeMenuPos();
             }
-            velocity = Math.abs(ev.velocity);
         });
     };
 
@@ -120,9 +125,10 @@ var TouchMenuLA = function (options) {
     TouchMenuLA.prototype.touchEndMenu = function () {
         menuHammer.on('panend pancancel', function (ev) {
             options.target.classList.add('transition');
-            options.target.classList.remove('dragging');
+            options.target.classList.remove('draggingX');
             scrollContainer.style.transform = 'none';
-            dragging = false;
+            draggingX = false;
+            draggingY = false;
             currentPos = ev.deltaX;
             self.checkMenuState(ev.deltaX, ev.deltaY);
         });
@@ -178,13 +184,11 @@ var TouchMenuLA = function (options) {
     };
 
     TouchMenuLA.prototype.showMask = function () {
-        mask.className = "tmla-mask transition";
         mask.style.opacity = options.maxMaskOpacity;
         mask.style.zIndex = options.zIndex - 1;
     };
 
     TouchMenuLA.prototype.hideMask = function () {
-        mask.className = "tmla-mask transition";
         mask.style.opacity = 0;
         mask.style.zIndex = -1;
     };

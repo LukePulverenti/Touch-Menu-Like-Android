@@ -32,7 +32,7 @@
     overflow: auto;
 }
 
-.dragging .scrollContainer {
+.draggingX .scrollContainer {
     overflow: hidden;
 }
 
