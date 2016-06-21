@@ -145,7 +145,7 @@ var TouchMenuLA = function (options) {
 
     TouchMenuLA.prototype.checkMenuState = function (deltaX) {
         if (velocity >= 1.0) {
-            if (deltaX >= 0) {
+            if (deltaX >= -70) {
                 self.open();
             } else {
                 self.close();
