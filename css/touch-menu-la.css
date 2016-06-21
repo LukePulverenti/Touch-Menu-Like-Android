@@ -10,7 +10,9 @@
 }
 
     .touch-menu-la.transition {
-        transition: transform 0.3s ease-out !important;
+        /*transition: transform 0.3s ease-out;*/
+        transition: -webkit-transform ease-in-out 0.3s, width ease-in-out 0.3s, visibility 0.3s;
+        transition: transform ease-in-out 0.3s, width ease-in-out 0.3s, visibility 0.3s;
     }
 
     .touch-menu-la .tmla-handle {
