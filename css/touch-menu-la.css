@@ -8,7 +8,7 @@
     will-change: transform;
     contain: layout style;
     display: flex;
-    transition: transform ease-out 0.05s
+    transition: transform ease-out 0.1s;
 }
 
     .touch-menu-la.transition {
@@ -41,4 +41,5 @@
     background-color: #000;
     opacity: 0.0;
     z-index: -1;
+    transition: opacity ease-in-out 0.38s, visibility ease-in-out 0.38s;
 }
