@@ -1,12 +1,13 @@
 ﻿.touch-menu-la {
     width: 240px;
-    height: 100%;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: -280px;
+    bottom: 0;
     background-color: #FFF;
     will-change: transform;
     contain: layout style;
+    display: flex;
 }
 
     .touch-menu-la.transition {
@@ -22,6 +23,11 @@
         /* width: 20px; */
         height: 100%;
     }
+
+.scrollContainer {
+    flex-grow: 1;
+    overflow: auto;
+}
 
 .tmla-mask {
     width: 100%;
