@@ -110,7 +110,7 @@ var TouchMenuLA = function (options) {
         menuHammer.on('panend pancancel', function (ev) {
             options.target.classList.add('transition');
             currentPos = ev.deltaX;
-            self.checkMenuState(ev.deltaX);
+            self.checkMenuState(ev.deltaX, ev.deltaY);
         });
     };
 
@@ -134,7 +134,7 @@ var TouchMenuLA = function (options) {
 
     TouchMenuLA.prototype.eventEndMask = function () {
         maskHammer.on('panend pancancel', function (ev) {
-            self.checkMenuState(ev.deltaX);
+            self.checkMenuState(ev.deltaX, ev.deltaY);
             countStart = 0;
         });
     };
@@ -145,9 +145,9 @@ var TouchMenuLA = function (options) {
         });
     };
 
-    TouchMenuLA.prototype.checkMenuState = function (deltaX) {
+    TouchMenuLA.prototype.checkMenuState = function (deltaX, deltaY) {
         if (velocity >= 1.0) {
-            if (deltaX >= -80) {
+            if (deltaX >= -80 || Math.abs(deltaY) >= 70) {
                 self.open();
             } else {
                 self.close();
